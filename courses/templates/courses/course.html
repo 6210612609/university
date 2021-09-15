@@ -8,11 +8,15 @@
         <li>Quantity: {{ course.maxquantity }}</li>
         <li>Semester: {{ course.semester }}</li>
         <li>Year: {{ course.year }}</li>
+        {% if course.nowquantity < course.maxquantity %}
         <li>Quota : {{ course.nowquantity }} / {{ course.maxquantity }}</li>
-        {% if course.status and course.nowquantity < course.maxquantity %}
-        <li>Status : avaliable</li>
         {% else %}
-        <li>Status : unavaliable</li>
+        <li>Quota : Full!!</li>
+        {% endif %}
+        {% if course.status %}
+        <li>Status : available</li>
+        {% else %}
+        <li>Status : unavailable</li>
         {% endif %}
     </ul>
 
@@ -28,18 +32,26 @@
     {% endif %}
     
     {% if not request.user.is_superuser %}
-        {% if request.user not in students and course.status %}
+        {% if course.status %}
+           
+        {% if request.user not in students %}
             {% if course.nowquantity < course.maxquantity %}
                 <a href="{% url 'courses:book' course.id %}">register</a>
             {% else %}
-                <p>can't register because not avaliable quota</p>
+                <p>can't register because not available quota</p>
             {% endif %}
+          
         {% else %}
-        <a href="{% url 'courses:remove' course.id %}">remove</a>    
+        <a href="{% url 'courses:remove' course.id %}">remove</a>   
+        {% endif %}
         
         {% endif %}
     {% endif %}
     <br>
+    {% if request.user in students %}
+    <p>you've already registered</p>
+
+    {% endif %}
 
     {% if request.user.is_superuser %}
     <a href="{% url 'courses:godhand' course.id %}">god plan</a>
