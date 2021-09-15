@@ -1,0 +1,49 @@
+{% extends "courses/layout.html" %}
+
+{% block body %}
+
+    <h1>Course {{ course.id }}</h1>
+    <ul>
+        <li>Name: {{ course.name }}</li>
+        <li>Quantity: {{ course.maxquantity }}</li>
+        <li>Semester: {{ course.semester }}</li>
+        <li>Year: {{ course.year }}</li>
+        <li>Quota : {{ course.nowquantity }} / {{ course.maxquantity }}</li>
+        {% if course.status and course.nowquantity < course.maxquantity %}
+        <li>Status : avaliable</li>
+        {% else %}
+        <li>Status : unavaliable</li>
+        {% endif %}
+    </ul>
+
+    {% if request.user.is_superuser %}
+    <h2>Students</h2>
+    <ul>
+        {% for student in students %}
+        <li>{{student.first_name}} {{student.last_name}}</li>
+        {% empty %}
+        <li>No students</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+    {% if not request.user.is_superuser %}
+        {% if request.user not in students and course.status %}
+            {% if course.nowquantity < course.maxquantity %}
+                <a href="{% url 'courses:book' course.id %}">register</a>
+            {% else %}
+                <p>can't register because not avaliable quota</p>
+            {% endif %}
+        {% else %}
+        <a href="{% url 'courses:remove' course.id %}">remove</a>    
+        
+        {% endif %}
+    {% endif %}
+    <br>
+
+    {% if request.user.is_superuser %}
+    <a href="{% url 'courses:godhand' course.id %}">god plan</a>
+    {% endif %}
+
+    <a href="{% url "courses:index" %}">back</a>
+{% endblock %}

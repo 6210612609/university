@@ -1,0 +1,15 @@
+{% extends "courses/layout.html" %}
+
+{% block body %}
+
+    <h1>Courses</h1>
+    <ul>
+        {% for course in courses %}
+            <li><a href="{% url "courses:course" course.id %}">Course {{ course }}</a></li>
+        {% endfor %}
+    </ul>
+    <br>
+    <br>
+    <a href="{% url "users:index" %}">back to home</a>
+
+{% endblock %}
