@@ -15,15 +15,14 @@
             <style>
             body {
                 font-family: 'Livvic', sans-serif;
-                background-color:#e8faff;
-                background-image: url("https://i2.wp.com/blackpinkupdate.com/wp-content/uploads/2020/06/BLACKPINK-Official-Logo-HD.jpg?resize=400%2C400&ssl=1");
+                background-color: rgb(0, 0, 0);
             }
             </style>
 
             <form style ="margin-top: 15%;" action="{% url 'users:login' %}?next={{ next }}" method="post">
                 {% csrf_token %}
-                <input class="uuu uuu1" type="text" name="username" placeholder="username"><br><br>
-                <input class="uuu uuu1" type="password" name="password" placeholder="password"><br><br>
+                <input class="unapw unapw1" type="text" name="username" placeholder="username"><br><br>
+                <input class="unapw unapw1" type="password" name="password" placeholder="password"><br><br>
                 <input class="button button1" type="submit" value="LOGIN">
             </form>
         

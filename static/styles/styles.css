@@ -1,4 +1,4 @@
-.uuu {
+.unapw {
   border-radius: 30px;
   background: #f4a7bb;
   padding: 20px;
@@ -7,11 +7,13 @@
   border-color: #f4a7bb;
   outline: none;  
 }
-.uuu1 {
+
+.unapw1 {
   background-color: white; 
   color: #000000; 
   border: 3px solid #f4a7bb;
 }
+
 .button {
   border-radius: 30px;
   border: none;
@@ -25,36 +27,66 @@
   transition-duration: 0.4s;
   cursor: pointer;
 }
+
 .button1 {
-  background-color: white; 
+  background-color: rgb(0, 0, 0); 
   color: #f4a7bb; 
   border: 3px solid #f4a7bb;
 }
+
 .button1:hover {
   background-color: #f4a7bb;
   color: white;
   }
+
 .alert-success {
   color: #f4a7bb;
   background-color: #e4e4e40e;
   border-color: #e4e4e400;
   font-size: 22px;
 }
+
 .alert-warning {
   color: #f4a7bb;
   background-color: #e4e4e400;
   border-color: #e4e4e400;
   font-size: 22px;
 }
+
 ::placeholder {
   color: #f4a7bb;
   opacity: 1; 
-  }
+}
 
 :-ms-input-placeholder { 
   color: #f4a7bb;
-  }
+}
 
 ::-ms-input-placeholder {
   color: #f4a7bb;
+}
+
+.outbutton {
+  border-radius: 30px;
+  border: none;
+  color: white;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
   }
+
+.outbutton1 {
+  background-color: rgb(0, 0, 0); 
+  color: #f4a7bb; 
+  border: 3px solid #f4a7bb;
+}
+
+.outbutton1:hover {
+  background-color: #f4a7bb;
+  color: white;
+}
