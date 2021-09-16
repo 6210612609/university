@@ -7,7 +7,7 @@
         <li>Name: {{ course.name }}</li>
         <li>Quantity: {{ course.maxquantity }}</li>
         <li>Semester: {{ course.semester }}</li>
-        <li>Year: {{ course.year }}</li>
+        <li>Years: {{ course.year }}</li>
         {% if course.nowquantity < course.maxquantity %}
         <li>Quota : {{ course.nowquantity }} / {{ course.maxquantity }}</li>
         {% else %}
