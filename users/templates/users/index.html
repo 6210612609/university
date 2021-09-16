@@ -1,13 +1,17 @@
 {% extends "users/layout.html" %}
 
 {% block body %}
+<div style = "text-align: center;">
+    <h1>Welcome, {{ request.user.username }}</h1>
 
-    <h1>Welcome, {{ request.user.first_name }}</h1>
+    
+    <p>Please verify the accuracy of the data.<br>
+    name : {{ request.user.first_name }} {{ request.user.last_name }}<br>
+    email : {{ request.user.email }}<br>
+    If it's not yours , please logout.</p>
 
-    <ul>
-        <li>Username: {{ request.user.username }}</li>
-        <li>Email: {{ request.user.email }}</li>
-    </ul>
+  
 
-    <a href="{% url 'users:logout' %}">Log out</a> <a href="{% url 'courses:index' %}">course</a> 
+    <a href="{% url 'users:logout' %}">Log out</a> <a href="{% url 'courses:index' %}">course</a>
+</div> 
 {% endblock %}

@@ -31,7 +31,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    messages.success(request, "Logged out.")
+    messages.success(request, "your account has been logged off.")
     return render(request, "users/login.html", {
         "messages": messages.get_messages(request)
     })

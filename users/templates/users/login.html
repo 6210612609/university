@@ -1,17 +1,35 @@
 {% extends "users/layout.html" %}
-{% block body %}
+{% load static %}
 
-    {% if messages %}
-        {% for message in messages %}
-        <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
-        {% endfor %}
-    {% endif %}
+    {% block body %}
+    
+        <div style = "text-align: center;">
+            {% if messages %}
+                {% for message in messages %}
+                    <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@400&display=swap" rel="stylesheet">
+            <style>
+            body {
+                font-family: 'Livvic', sans-serif;
+                background-color:#e8faff;
+                background-image: url("https://i2.wp.com/blackpinkupdate.com/wp-content/uploads/2020/06/BLACKPINK-Official-Logo-HD.jpg?resize=400%2C400&ssl=1");
+            }
+            </style>
 
-    <form action="{% url 'users:login' %}?next={{ next }}" method="post">
-        {% csrf_token %}
-        <input type="text" name="username" placeholder="Username"><br><br>
-        <input type="password" name="password" placeholder="Password"><br><br>
-        <input type="submit" value="Login">
-    </form>
+            <form style ="margin-top: 15%;" action="{% url 'users:login' %}?next={{ next }}" method="post">
+                {% csrf_token %}
+                <input class="uuu uuu1" type="text" name="username" placeholder="username"><br><br>
+                <input class="uuu uuu1" type="password" name="password" placeholder="password"><br><br>
+                <input class="button button1" type="submit" value="LOGIN">
+            </form>
+        
+        </div> 
+        
 
-{% endblock %}
+    {% endblock %}
+
+    
