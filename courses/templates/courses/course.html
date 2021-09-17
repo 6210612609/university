@@ -1,34 +1,48 @@
 {% extends "courses/layout.html" %}
-
+{% load static %}
 {% block body %}
+<div style = "text-align: center;margin-top: 7%;">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Livvic', sans-serif;
+            background-color: rgb(0, 0, 0);
+            color:#ffffff;
+        }
+    
+    </style>
 
-    <h1>Course {{ course.id }}</h1>
-    <ul>
-        <li>Name: {{ course.name }}</li>
-        <li>Quantity: {{ course.maxquantity }}</li>
-        <li>Semester: {{ course.semester }}</li>
-        <li>Years: {{ course.year }}</li>
-        {% if course.nowquantity < course.maxquantity %}
-        <li>Quota : {{ course.nowquantity }} / {{ course.maxquantity }}</li>
-        {% else %}
-        <li>Quota : Full!!</li>
+    <h1 class="lh12">Course {{ course.id }}</h1>
+        <p class="litb">Name <span style="color:#f4a7bb">:</span> {{ course.name }}<br>
+            Quantity <span style="color:#f4a7bb">:</span> {{ course.maxquantity }}<br>
+            Semester <span style="color:#f4a7bb">:</span> {{ course.semester }}<br>
+            Years <span style="color:#f4a7bb">:</span> {{ course.year }}<br>
+            {% if course.nowquantity < course.maxquantity %}
+            Quota <span style="color:#f4a7bb">:</span> {{ course.nowquantity }} / {{ course.maxquantity }}<br>
+            {% else %}
+            Quota <span style="color:#f4a7bb">:</span> <span style="color:tomato">{{ course.nowquantity }} / {{ course.maxquantity }} &Cross;Full&Cross;</span><br>
+            {% endif %}
+            {% if course.status %}
+            Status <span style="color:#f4a7bb">:</span> <span style="color:#92ca91">available</span><br>
+            {% else %}
+            Status <span style="color:#f4a7bb">:</span> <span style="color:tomato">unavailable</span><br>
+            {% if course.status and request.user.is_superuser %}
+            can't register because course is unavailable.
+            {% endif %}
+        </p>
         {% endif %}
-        {% if course.status %}
-        <li>Status : available</li>
-        {% else %}
-        <li>Status : unavailable</li>
-        {% endif %}
-    </ul>
 
     {% if request.user.is_superuser %}
-    <h2>Students</h2>
-    <ul>
-        {% for student in students %}
-        <li>{{student.first_name}} {{student.last_name}}</li>
-        {% empty %}
-        <li>No students</li>
-        {% endfor %}
-    </ul>
+        <h2 class="lh12">Students</h2>
+        <p class="litbb"><span style="color:#f4a7bb">&uArr;</span>
+            {% for student in students %}
+            {{student.first_name}} {{student.last_name}} <span style="color:#f4a7bb">&uArr;</span>
+            {% empty %}
+            No students &uArr;
+            {% endfor %}
+        </p>
     {% endif %}
     
     {% if not request.user.is_superuser %}
@@ -36,26 +50,26 @@
            
         {% if request.user not in students %}
             {% if course.nowquantity < course.maxquantity %}
-                <a href="{% url 'courses:book' course.id %}">register</a>
+                <a class="outbutton outbutton1" href="{% url 'courses:book' course.id %}">register</a>
             {% else %}
-                <p>can't register because not available quota</p>
+                <p class="litb">can't register because course is full.</p>
             {% endif %}
           
         {% else %}
-        <a href="{% url 'courses:remove' course.id %}">remove</a>   
+        <a class="outbutton outbutton1" href="{% url 'courses:remove' course.id %}">remove</a>   
         {% endif %}
         
         {% endif %}
     {% endif %}
     <br>
     {% if request.user in students %}
-    <p>you've already registered</p>
+    <p class="litb" style = "color: #92ca91">you've already registered</p>
 
     {% endif %}
 
+        <a class="outbutton outbutton1" href="{% url 'courses:index' %}">Back to courses</a>
     {% if request.user.is_superuser %}
-    <a href="{% url 'courses:godhand' course.id %}">god plan</a>
+        <a class="outbutton outbutton1" href="{% url 'courses:godhand' course.id %}">switch</a>
     {% endif %}
-
-    <a href="{% url "courses:index" %}">back</a>
+</div>
 {% endblock %}

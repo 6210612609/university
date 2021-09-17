@@ -90,3 +90,100 @@
   background-color: #f4a7bb;
   color: white;
 }
+.cbutton {
+  border-radius: 30px;
+  border: none;
+  color: white;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  }
+
+.cbutton1 {
+  background-color: rgb(0, 0, 0); 
+  color: #f4a7bb; 
+  border: 3px solid #f4a7bb;
+}
+
+.cbutton1:hover {
+  background-color: #f4a7bb;
+  color: white;
+  border: 3px solid #f4a7bb;
+}
+
+.cfbutton {
+  border-radius: 30px;
+  border: none;
+  color: white;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  }
+
+.cfbutton1 {
+  background-color: rgb(0, 0, 0); 
+  color: #d30038; 
+  border: 3px solid #d30038;
+}
+
+.cfbutton1:hover {
+  background-color: #d30038;
+  color: white;
+  border: 3px solid #d30038;
+} 
+
+.cautton {
+  border-radius: 30px;
+  border: none;
+  color: white;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  }
+
+.cautton1 {
+  background-color: rgb(0, 0, 0); 
+  color: #979797; 
+  border: 3px solid #979797;
+}
+
+.cautton1:hover {
+  background-color: #979797;
+  color: white;
+  border: 3px solid #979797;
+} 
+
+.lh1{
+  color:#f4a7bb;
+  font-size: 50px;
+}
+.lh12{
+  color:#f4a7bb;
+  font-size: 40px;
+}
+.lh3{
+  color:#f4a7bb;
+}
+
+.litb{
+  font-size: 20px;
+}
+
+.litbb{
+  font-size: 17px;
+}

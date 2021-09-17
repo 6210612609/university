@@ -13,4 +13,4 @@ class Course(models.Model):
     status = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"{self.id}: {self.name}"
+        return f"{self.id} : {self.name}"

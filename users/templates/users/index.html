@@ -1,29 +1,31 @@
 {% extends "users/layout.html" %}
 {% load static %}
 {% block body %}
-<div style = "text-align: center;margin-top: 15%;">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@400&display=swap" rel="stylesheet">
-    <style>
-        
-        body {
+    <div style = "text-align: center;margin-top: 15%;">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@400&display=swap" rel="stylesheet">
+        <style>
+            body {
                 font-family: 'Livvic', sans-serif;
                 background-color: rgb(0, 0, 0);
                 color:#ffffff;
             }
-            </style>
         </style>
-    <h1>Welcome, {{ request.user.username }}</h1>
+        <h1 style="color: #f4a7bb;">Welcome, {{ request.user.username }} </h1>
+
+        {% if not request.user.is_superuser %}
+        <p>Please verify the accuracy of the data.<br>
+        Name : {{ request.user.first_name }} {{ request.user.last_name }}<br>
+        Email : {{ request.user.email }}<br>
+        <span style="color:tomato">If it's not yours , please sign out and sign in using yours again.</span></p>
+        {% else %}
+        <img src="{% static 'images/gear2.png' %}"/>Ready for course managing.<img src="{% static 'images/gear2.png' %}"/><br>
+        
+        {% endif %}
 
     
-    <p>Please verify the accuracy of the data.<br>
-    name : {{ request.user.first_name }} {{ request.user.last_name }}<br>
-    email : {{ request.user.email }}<br>
-    If it's not yours , please logout.</p>
 
-  
-
-    <a class="outbutton outbutton1" href="{% url 'users:logout' %}" >LOGOUT</a> <a class="outbutton outbutton1" href="{% url 'courses:index' %}">COURSE</a>
-</div> 
+        <a class="outbutton outbutton1" href="{% url 'users:logout' %}" >Sign out</a> <a class="outbutton outbutton1" href="{% url 'courses:index' %}">Courses</a>
+    </div> 
 {% endblock %}
