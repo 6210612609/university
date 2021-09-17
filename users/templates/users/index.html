@@ -12,12 +12,12 @@
                 color:#ffffff;
             }
         </style>
-        <h1 style="color: #f4a7bb;">Welcome, {{ request.user.username }} </h1>
+        <h1 style="color: #f4a7bb;">Welcome<span style="color:#ffffff">,</span> {{ request.user.username }} </h1>
 
         {% if not request.user.is_superuser %}
         <p class="litbb">Please verify the accuracy of the data.<br>
-        Name : {{ request.user.first_name }} {{ request.user.last_name }}<br>
-        Email : {{ request.user.email }}<br>
+        Name <span style="color:#f4a7bb">:</span> {{ request.user.first_name }} {{ request.user.last_name }}<br>
+        Email <span style="color:#f4a7bb">:</span> {{ request.user.email }}<br>
         <span style="color:tomato">If it's not yours , please sign out and sign in using yours again.</span></p>
         {% else %}
         <img src="{% static 'images/gear2.png' %}"/>Ready for course managing.<img src="{% static 'images/gear2.png' %}"/><br>
