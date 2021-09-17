@@ -105,7 +105,7 @@
   }
 
 .cbutton1 {
-  background-color: rgb(0, 0, 0); 
+  background-color: rgb(255, 255, 255); 
   color: #f4a7bb; 
   border: 3px solid #f4a7bb;
 }
@@ -131,7 +131,7 @@
   }
 
 .cfbutton1 {
-  background-color: rgb(0, 0, 0); 
+  background-color: rgb(255, 255, 255); 
   color: #d30038; 
   border: 3px solid #d30038;
 }
@@ -157,7 +157,7 @@
   }
 
 .cautton1 {
-  background-color: rgb(0, 0, 0); 
+  background-color: rgb(255, 255, 255); 
   color: #979797; 
   border: 3px solid #979797;
 }
@@ -166,6 +166,58 @@
   background-color: #979797;
   color: white;
   border: 3px solid #979797;
+} 
+
+.rbutton {
+  border-radius: 30px;
+  border: none;
+  color: white;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  }
+
+.rbutton1 {
+  background-color: rgb(0, 0, 0); 
+  color: #92ca91; 
+  border: 3px solid #92ca91;
+}
+
+.rbutton1:hover {
+  background-color: #92ca91;
+  color: white;
+  border: 3px solid #92ca91;
+} 
+
+.dbutton {
+  border-radius: 30px;
+  border: none;
+  color: white;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  }
+
+.dbutton1 {
+  background-color: rgb(0, 0, 0); 
+  color: tomato; 
+  border: 3px solid tomato;
+}
+
+.dbutton1:hover {
+  background-color: tomato;
+  color: white;
+  border: 3px solid tomato;
 } 
 
 .lh1{

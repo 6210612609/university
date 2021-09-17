@@ -60,3 +60,4 @@ def godhand(request, course_id):
             count.status = True
             count.save()
     return HttpResponseRedirect(reverse("courses:course", args=(course_id,)))
+

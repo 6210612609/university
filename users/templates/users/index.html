@@ -1,7 +1,7 @@
 {% extends "users/layout.html" %}
 {% load static %}
 {% block body %}
-    <div style = "text-align: center;margin-top: 15%;">
+    <div style = "text-align: center;margin-top: 9%;">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@400&display=swap" rel="stylesheet">
@@ -19,6 +19,10 @@
         Name <span style="color:#f4a7bb">:</span> {{ request.user.first_name }} {{ request.user.last_name }}<br>
         Email <span style="color:#f4a7bb">:</span> {{ request.user.email }}<br>
         <span style="color:tomato">If it's not yours , please sign out and sign in using yours again.</span></p>
+        <h3 style="color: #f4a7bb;">Your registered course</h3>
+        <p class="litbb">{% for c in courselist %}
+        &emsp;<span style="color:#f4a7bb">&#9830;</span>&emsp;{{ c }}
+        {% endfor %}&nbsp;&nbsp;&nbsp;<span style="color:#f4a7bb">&#9830;</span></p>
         {% else %}
         <img src="{% static 'images/gear2.png' %}"/>Ready for course managing.<img src="{% static 'images/gear2.png' %}"/><br>
         

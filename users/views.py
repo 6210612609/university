@@ -3,14 +3,23 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-
+import sys
+sys.path.append('../')
+from courses.models import *
 # Create your views here.
 
 def index(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("users:login"))
     else:
-        return render(request, "users/index.html")
+        courselist = []
+        for c in Course.objects.all():
+            if request.user in c.students.all():
+                courselist.append(c) 
+           
+        return render(request, "users/index.html",{
+            "courselist": courselist
+        })
 
 def login_view(request):
     if request.method == "POST":

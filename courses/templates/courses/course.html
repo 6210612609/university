@@ -50,20 +50,24 @@
            
         {% if request.user not in students %}
             {% if course.nowquantity < course.maxquantity %}
-                <a class="outbutton outbutton1" href="{% url 'courses:book' course.id %}">register</a>
+                <a class="rbutton rbutton1" href="{% url 'courses:book' course.id %}">register</a>
+                <p class="litb" style = "color: #ffffff">Click register button to register this course.</p><br>   
             {% else %}
                 <p class="litb">can't register because course is full.</p>
             {% endif %}
           
         {% else %}
-        <a class="outbutton outbutton1" href="{% url 'courses:remove' course.id %}">remove</a>   
+        <a class="dbutton dbutton1" href="{% url 'courses:remove' course.id %}">deregister</a>
+        <p class="litb"><span style="color:#92ca91">you've already registered.</span><br>
+        Click deregister button to deregister this course.
+        </p>   
         {% endif %}
         
         {% endif %}
     {% endif %}
-    <br>
+    
     {% if request.user in students %}
-    <p class="litb" style = "color: #92ca91">you've already registered</p>
+    
 
     {% endif %}
 
