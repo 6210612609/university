@@ -16,20 +16,20 @@
 
     <h1 class="lh12">Course {{ course.id }}</h1>
         <p class="litb">Name <span style="color:#f4a7bb">:</span> {{ course.name }}<br>
-            Quantity <span style="color:#f4a7bb">:</span> {{ course.maxquantity }}<br>
+            Quota <span style="color:#f4a7bb">:</span> {{ course.maxquantity }}<br>
             Semester <span style="color:#f4a7bb">:</span> {{ course.semester }}<br>
             Years <span style="color:#f4a7bb">:</span> {{ course.year }}<br>
             {% if course.nowquantity < course.maxquantity %}
             Quota <span style="color:#f4a7bb">:</span> {{ course.nowquantity }} / {{ course.maxquantity }}<br>
             {% else %}
-            Quota <span style="color:#f4a7bb">:</span> <span style="color:tomato">{{ course.nowquantity }} / {{ course.maxquantity }} &Cross;Full&Cross;</span><br>
+            Amount <span style="color:#f4a7bb">:</span> <span style="color:tomato">{{ course.nowquantity }} / {{ course.maxquantity }} &Cross;FULL&Cross;</span><br>
             {% endif %}
             {% if course.status %}
             Status <span style="color:#f4a7bb">:</span> <span style="color:#92ca91">available</span><br>
             {% else %}
             Status <span style="color:#f4a7bb">:</span> <span style="color:tomato">unavailable</span><br>
-            {% if course.status and request.user.is_superuser %}
-            can't register because course is unavailable.
+            {% if not course.status and not request.user.is_superuser %}
+            <br>can't register or deregister because course is unavailable.
             {% endif %}
         </p>
         {% endif %}
@@ -38,7 +38,7 @@
         <h2 class="lh12">Students</h2>
         <p class="litbb"><span style="color:#f4a7bb">&uArr;</span>
             {% for student in students %}
-            {{student.first_name}} {{student.last_name}} <span style="color:#f4a7bb">&uArr;</span>
+            {{student.id}} : {{student.first_name}} {{student.last_name}} <span style="color:#f4a7bb">&uArr;</span>
             {% empty %}
             No students &uArr;
             {% endfor %}
@@ -73,7 +73,7 @@
 
         <a class="outbutton outbutton1" href="{% url 'courses:index' %}">Back to courses</a>
     {% if request.user.is_superuser %}
-        <a class="outbutton outbutton1" href="{% url 'courses:godhand' course.id %}">switch</a>
+        <a class="outbutton outbutton1" href="{% url 'courses:godhand' course.id %}">Status switch</a>
     {% endif %}
 </div>
 {% endblock %}

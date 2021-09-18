@@ -10,7 +10,7 @@
 
 .unapw1 {
   background-color: white; 
-  color: #000000; 
+  color: #f4a7bb; 
   border: 3px solid #f4a7bb;
 }
 
@@ -48,8 +48,8 @@
 
 .alert-warning {
   color: #f4a7bb;
-  background-color: #e4e4e400;
-  border-color: #e4e4e400;
+  background-color: #e4e4e40e;
+  border-color: #e4e4e40e;
   font-size: 22px;
 }
 
