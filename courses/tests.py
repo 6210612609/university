@@ -10,8 +10,8 @@ from courses.models import Course
 
 class CourseModelTestCase(TestCase):
     def setUp(self):
-        user = User.objects.create(username='user1', password = make_password('12341'), email='user1@example.com')
-        course = Course.objects.create(name='Physics', maxquantity = '5', semester = '1', year = '1')
+        User.objects.create(username='user1', password = make_password('12341'), email='user1@example.com')
+        Course.objects.create(name='Physics', maxquantity = '5', semester = '1', year = '1')
 
     def test_index_view_with_authentication(self):
         c = Client()
@@ -32,7 +32,7 @@ class CourseModelTestCase(TestCase):
         c1.save()
 
         c = Client()
-        response = c.get(reverse('courses:book', args=(c1.id,)))
+        c.get(reverse('courses:book', args=(c1.id,)))
         self.assertEqual(c1.students.count(), 0)
 
     def test_book_with_authentication(self):
@@ -42,7 +42,7 @@ class CourseModelTestCase(TestCase):
 
         c = Client()
         c.force_login(user)
-        response = c.get(reverse('courses:book', args=(c1.id,)))
+        c.get(reverse('courses:book', args=(c1.id,)))
         self.assertEqual(c1.students.count(), 1)
 
     def test_remove_without_authentication(self):
@@ -50,7 +50,7 @@ class CourseModelTestCase(TestCase):
         c1.save()
 
         c = Client()
-        response = c.get(reverse('courses:remove', args=(c1.id,)))
+        c.get(reverse('courses:remove', args=(c1.id,)))
         self.assertEqual(c1.students.count(), 0)
 
     def test_remove_with_authentication(self):
@@ -60,9 +60,9 @@ class CourseModelTestCase(TestCase):
 
         c = Client()
         c.force_login(user)
-        response1 = c.get(reverse('courses:book', args=(c1.id,)))
+        c.get(reverse('courses:book', args=(c1.id,)))
         self.assertEqual(c1.students.count(), 1)
-        response2 = c.get(reverse('courses:remove', args=(c1.id,)))
+        c.get(reverse('courses:remove', args=(c1.id,)))
         self.assertEqual(c1.students.count(), 0)
 
     def test_godhand(self):
@@ -73,7 +73,7 @@ class CourseModelTestCase(TestCase):
         c1.save()
         c = Client()
         c.force_login(user)
-        response1 = c.get(reverse('courses:godhand', args=(c1.id,)))
+        c.get(reverse('courses:godhand', args=(c1.id,)))
         c1.status = False
         c1.save()
-        response2 = c.get(reverse('courses:godhand', args=(c1.id,)))
+        c.get(reverse('courses:godhand', args=(c1.id,)))

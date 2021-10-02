@@ -9,8 +9,8 @@ from courses.models import Course
 class UserViewTestCase(TestCase):
 
     def setUp(self):
-        user = User.objects.create(username='user1', password = make_password('1234'), email='user@example.com')
-        course = Course.objects.create(name='Physics', maxquantity = '5', semester = '1', year = '1')
+        User.objects.create(username='user1', password = make_password('1234'), email='user@example.com')
+        Course.objects.create(name='Physics', maxquantity = '5', semester = '1', year = '1')
 
     def test_index_view_with_authentication(self):
         c = Client()
@@ -55,15 +55,11 @@ class UserViewTestCase(TestCase):
 
     def test_login_view_without_authentication(self):
         c = Client()
-        user = User.objects.get(username='user1')
-        
         response = c.get(reverse('users:login'))
         self.assertEqual(response.status_code, 200)
 
     def test_logout_view_without_authentication(self):
         c = Client()
-        user = User.objects.get(username='user1')
-        
         response = c.get(reverse('users:logout'))
         self.assertEqual(response.status_code, 200)
     
