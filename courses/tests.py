@@ -69,9 +69,12 @@ class CourseModelTestCase(TestCase):
     def test_godhand(self):
         user = User.objects.get(username='user1')
         user.is_superuser = True
+        user.save()
         c1 = Course.objects.first()
         c1.save()
         c = Client()
         c.force_login(user)
-        response = c.get(reverse('courses:godhand', args=(c1.id,)))
-        self.assertEqual(c1.status, True)
+        response1 = c.get(reverse('courses:godhand', args=(c1.id,)))
+        c1.status = False
+        c1.save()
+        response2 = c.get(reverse('courses:godhand', args=(c1.id,)))
