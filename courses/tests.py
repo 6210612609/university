@@ -4,8 +4,7 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
-from .models import Course
-from .views import book
+from courses.models import Course
 
 # Create your tests here.
 
