@@ -30,9 +30,9 @@ def book(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
     if request.user not in course.students.all():
         course.students.add(request.user)
-        count = Course.objects.get(id = course_id)
-        count.nowquantity += 1
-        count.save()
+        course = Course.objects.get(id = course_id)
+        course.nowquantity += 1
+        course.save()
     return HttpResponseRedirect(reverse("courses:course", args=(course_id,)))
 
 
@@ -44,20 +44,20 @@ def remove(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
     if request.user in course.students.all():
         course.students.remove(request.user)
-        count = Course.objects.get(id = course_id)
-        count.nowquantity -= 1
-        count.save()
+        course = Course.objects.get(id = course_id)
+        course.nowquantity -= 1
+        course.save()
     return HttpResponseRedirect(reverse("courses:course", args=(course_id,)))
 
 
 def godhand(request, course_id):
     if request.user.is_superuser:
-        count = Course.objects.get(id = course_id)
-        if count.status:
-            count.status = False
-            count.save()
+        course = Course.objects.get(id = course_id)
+        if course.status:
+            course.status = False
+            course.save()
         else:
-            count.status = True
-            count.save()
+            course.status = True
+            course.save()
     return HttpResponseRedirect(reverse("courses:course", args=(course_id,)))
 

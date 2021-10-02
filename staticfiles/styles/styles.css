@@ -1,0 +1,241 @@
+.unapw {
+  border-radius: 30px;
+  background: #f4a7bb;
+  padding: 20px;
+  width: 300px;
+  height: 50px;
+  border-color: #f4a7bb;
+  outline: none;  
+}
+
+.unapw1 {
+  background-color: white; 
+  color: #f4a7bb; 
+  border: 3px solid #f4a7bb;
+}
+
+.button {
+  border-radius: 30px;
+  border: none;
+  color: white;
+  padding: 11px 124px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: rgb(0, 0, 0); 
+  color: #f4a7bb; 
+  border: 3px solid #f4a7bb;
+}
+
+.button1:hover {
+  background-color: #f4a7bb;
+  color: white;
+  }
+
+.alert-success {
+  color: #f4a7bb;
+  background-color: #e4e4e40e;
+  border-color: #e4e4e400;
+  font-size: 22px;
+}
+
+.alert-warning {
+  color: #f4a7bb;
+  background-color: #e4e4e40e;
+  border-color: #e4e4e40e;
+  font-size: 22px;
+}
+
+::placeholder {
+  color: #f4a7bb;
+  opacity: 1; 
+}
+
+:-ms-input-placeholder { 
+  color: #f4a7bb;
+}
+
+::-ms-input-placeholder {
+  color: #f4a7bb;
+}
+
+.outbutton {
+  border-radius: 30px;
+  border: none;
+  color: white;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  }
+
+.outbutton1 {
+  background-color: rgb(0, 0, 0); 
+  color: #f4a7bb; 
+  border: 3px solid #f4a7bb;
+}
+
+.outbutton1:hover {
+  background-color: #f4a7bb;
+  color: white;
+}
+.cbutton {
+  border-radius: 30px;
+  border: none;
+  color: white;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  }
+
+.cbutton1 {
+  background-color: rgb(255, 255, 255); 
+  color: #f4a7bb; 
+  border: 3px solid #f4a7bb;
+}
+
+.cbutton1:hover {
+  background-color: #f4a7bb;
+  color: white;
+  border: 3px solid #f4a7bb;
+}
+
+.cfbutton {
+  border-radius: 30px;
+  border: none;
+  color: white;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  }
+
+.cfbutton1 {
+  background-color: rgb(255, 255, 255); 
+  color: #d30038; 
+  border: 3px solid #d30038;
+}
+
+.cfbutton1:hover {
+  background-color: #d30038;
+  color: white;
+  border: 3px solid #d30038;
+} 
+
+.cautton {
+  border-radius: 30px;
+  border: none;
+  color: white;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  }
+
+.cautton1 {
+  background-color: rgb(255, 255, 255); 
+  color: #979797; 
+  border: 3px solid #979797;
+}
+
+.cautton1:hover {
+  background-color: #979797;
+  color: white;
+  border: 3px solid #979797;
+} 
+
+.rbutton {
+  border-radius: 30px;
+  border: none;
+  color: white;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  }
+
+.rbutton1 {
+  background-color: rgb(0, 0, 0); 
+  color: #92ca91; 
+  border: 3px solid #92ca91;
+}
+
+.rbutton1:hover {
+  background-color: #92ca91;
+  color: white;
+  border: 3px solid #92ca91;
+} 
+
+.dbutton {
+  border-radius: 30px;
+  border: none;
+  color: white;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  }
+
+.dbutton1 {
+  background-color: rgb(0, 0, 0); 
+  color: tomato; 
+  border: 3px solid tomato;
+}
+
+.dbutton1:hover {
+  background-color: tomato;
+  color: white;
+  border: 3px solid tomato;
+} 
+
+.lh1{
+  color:#f4a7bb;
+  font-size: 50px;
+}
+.lh12{
+  color:#f4a7bb;
+  font-size: 40px;
+}
+.lh3{
+  color:#f4a7bb;
+}
+
+.litb{
+  font-size: 20px;
+}
+
+.litbb{
+  font-size: 17px;
+}
