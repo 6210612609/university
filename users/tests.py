@@ -24,8 +24,6 @@ class UserViewTestCase(TestCase):
 
     def test_index_view_without_authentication(self):
         c = Client()
-        user = User.objects.get(username='user1')
-        
         response = c.get(reverse('users:index'))
         self.assertEqual(response.status_code, 302)
 
